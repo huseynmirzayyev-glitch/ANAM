@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<title>Anamın Ad Günü Sürprizi 🎉</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #ffe6f0, #fff0e6);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    text-align: center;
+  }
+  h1 {
+    color: #ff1a75;
+    font-size: 3em;
+    margin-top: 50px;
+    text-shadow: 2px 2px 5px #ffccff;
+  }
+  .card {
+    background-color: #fff0f5;
+    border: 2px solid #ff99cc;
+    border-radius: 15px;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 1;
+  }
+  p {
+    color: #663366;
+    font-size: 1.3em;
+    line-height: 1.6em;
+  }
+  .balloon, .heart, .firework, .star, .confetti {
+    position: absolute;
+    font-size: 2em;
+    user-select: none;
+    cursor: pointer;
+  }
+  .cake {
+    position: absolute;
+    bottom: 20px;
+    font-size: 3em;
+    animation: cakeAppear 2s ease-in-out forwards;
+    opacity: 0;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(100vh); opacity:1;}
+    100% { transform: translateY(-10vh); opacity:0.8;}
+  }
+  @keyframes cakeAppear {
+    0% {opacity:0; transform: scale(0);}
+    100% {opacity:1; transform: scale(1);}
+  }
+</style>
+</head>
+<body>
+
+<h1>Canım Anam! 🎉👑</h1>
+
+<div class="card">
+<p>Canım anam, sən bizə çox əziyyət çəkibsən, biz bunu bilirik.<br>
+Səndən ilk əvvəl haqqını halal etməyini istəyirik.<br>
+Allah sənə uzun ömür, can sağlığı versin, xoşbəxt dolu illər keçirəsən.<br>
+Yaxşı ki, varsan!<br>
+Ad gününü təbrik edirəm, inşAllah 100000 illiyini qeyd edək ❤️🎊🎈🎂</p>
+<p style="font-style: italic; color:#cc3366;">Sənin öz mesajını burada əlavə edə bilərsən...</p>
+</div>
+
+<!-- Balonlar -->
+<div class="balloon" style="left:10%; color:#ff0066;">🎈</div>
+<div class="balloon" style="left:30%; color:#ff3399;">🎈</div>
+<div class="balloon" style="left:50%; color:#ff66cc;">🎈</div>
+<div class="balloon" style="left:70%; color:#ff99cc;">🎈</div>
+<div class="balloon" style="left:90%; color:#ffccff;">🎈</div>
+
+<!-- Qəlblər -->
+<div class="heart" style="left:20%; color:#ff0044;">❤️</div>
+<div class="heart" style="left:40%; color:#ff3366;">❤️</div>
+<div class="heart" style="left:60%; color:#ff6699;">❤️</div>
+<div class="heart" style="left:80%; color:#ff99cc;">❤️</div>
+
+<!-- Fişənglər -->
+<div class="firework" style="left:15%; color:#ff6600;">🎆</div>
+<div class="firework" style="left:45%; color:#ff9900;">🎇</div>
+<div class="firework" style="left:75%; color:#ffcc00;">🎆</div>
+
+<!-- Ulduzlar -->
+<div class="star" style="left:25%; color:gold;">✨</div>
+<div class="star" style="left:55%; color:yellow;">⭐</div>
+<div class="star" style="left:75%; color:gold;">✨</div>
+
+<!-- Tort -->
+<div class="cake">🎂</div>
+
+<!-- Konfeti -->
+<div class="confetti" style="left:15%; color:#ff66b2;">🎊</div>
+<div class="confetti" style="left:45%; color:#ff33cc;">🎉</div>
+<div class="confetti" style="left:75%; color:#ff00ff;">🎊</div>
+
+<script>
+  // Balonlar və qəlbləri yuxarı hərəkət etdir
+  const floats = document.querySelectorAll('.balloon, .heart, .star, .confetti');
+  floats.forEach(el=>{
+    let duration = Math.random()*5 + 5;
+    el.style.animation = `floatUp ${duration}s linear infinite`;
+    el.style.top = Math.random()*90 + 'vh';
+  });
+
+  // Balon kliklənəndə partlasın
+  const balloons = document.querySelectorAll('.balloon');
+  balloons.forEach(b => {
+    b.addEventListener('click', ()=>{
+      b.textContent = '💥';
+      setTimeout(()=> b.style.display='none',500);
+    });
+  });
+
+  // Fişəngləri yanıb-sönmə effekti
+  const fireworks = document.querySelectorAll('.firework');
+  setInterval(()=>{
+    fireworks.forEach(f => {
+      f.style.opacity = Math.random();
+    });
+  },300);
+
+  // Qəlblər təsadüfi sola-sağa hərəkət
+  const hearts = document.querySelectorAll('.heart');
+  hearts.forEach(h=>{
+    setInterval(()=>{
+      h.style.left = Math.random()*90 + 'vw';
+    },2000);
+  });
+
+</script>
+
+</body>
+</html>
